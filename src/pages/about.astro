@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PhoneCTA from '../components/PhoneCTA.astro';
+import { siteConfig } from '../config';
+
+const { businessName, phone, siteUrl, serviceKeyword, serviceKeywordPlural, city, region, cities } = siteConfig;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "About Us", "item": `${siteUrl}/about/` },
+  ],
+};
+
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": `About ${businessName}`,
+  "description": `Learn about ${businessName} — ${city}'s trusted lawn care professionals serving Florence, Covington, Fort Mitchell, and all ${region} cities.`,
+  "mainEntity": {
+    "@type": "LocalBusiness",
+    "name": businessName,
+    "telephone": siteConfig.phoneE164,
+  },
+};
+---
+
+<BaseLayout
+  title={`About Us | ${businessName} | ${serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} ${city}`}
+  description={`${businessName} is a locally owned ${serviceKeyword} company serving ${city}. We provide lawn care in Florence, Covington, Fort Mitchell, Erlanger, and all across ${region}. Licensed, insured, and committed to beautiful, healthy lawns.`}
+  canonicalURL={`${siteUrl}/about/`}
+  schema={[breadcrumbSchema, aboutPageSchema]}
+>
+
+<!-- Hero -->
+<section class="hero-section">
+  <div class="container">
+    <h1>About {businessName}</h1>
+    <p class="hero-sub">Locally owned {serviceKeyword} company serving {city}.</p>
+    <PhoneCTA />
+  </div>
+</section>
+
+<!-- Photo -->
+<div class="container py-6 text-center">
+  <img
+    src="/photos/team.jpg"
+    alt={`${businessName} team`}
+    class="site-photo mx-auto max-w-2xl"
+    loading="eager"
+  />
+</div>
+
+<!-- About content -->
+<div class="content-section">
+  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4">Who We Are</h2>
+
+  <p>{businessName} is a locally owned and operated {serviceKeyword} company based in {city}. We provide {serviceKeywordPlural} for residential properties across {region}.</p>
+
+  <p>We started this company because we saw a need for a reliable {serviceKeyword} service in {city}. Too many homeowners were dealing with {serviceKeyword} companies that didn't show up on time, didn't do a thorough job, or charged too much. We set out to be different.</p>
+
+  <p>Today, we serve over 15 communities across {city}. Our {serviceKeyword} team is fully licensed, insured, and background-checked. We show up on time, do the job right, and stand behind our work with a 100% satisfaction guarantee.</p>
+
+  <img
+    src="/photos/residential.jpg"
+    alt={`${serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} in ${city}`}
+    class="site-photo mx-auto max-w-lg my-6"
+    loading="lazy"
+  />
+
+  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4 mt-8">What We Do</h2>
+
+  <p>We provide {serviceKeywordPlural} for residential properties throughout {city}. Our services include:</p>
+
+  <ul>
+    {siteConfig.services.map((s) => (
+      <li><strong>{s.title}</strong> — {s.description.split('.').slice(0, 2).join('.')}.</li>
+    ))}
+  </ul>
+
+  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4 mt-8">Why {city} Trusts Us</h2>
+
+  <ul>
+    <li>Licensed and insured {serviceKeyword} company</li>
+    <li>Background-checked, professional technicians</li>
+    <li>On-time arrival — we respect your schedule</li>
+    <li>Professional-grade equipment and safe lawn care products</li>
+    <li>Custom fertilization programs safe for kids and pets</li>
+    <li>100% satisfaction guarantee on every {serviceKeyword} job</li>
+    <li>Locally owned and operated in {city}</li>
+    <li>Free estimates — just call {phone}</li>
+  </ul>
+
+  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4 mt-8">Where We Serve</h2>
+
+  <p>We provide {serviceKeywordPlural} throughout {city}, including {cities.map((c) => c.name).join(', ')}. If you're in {city} and need lawn care, call us at {phone}.</p>
+</div>
+
+<!-- CTA -->
+<section class="bg-gray-50 border-y-2 border-brand">
+  <div class="cta-strip container">
+    <p class="cta-heading">Ready for a Beautiful Lawn?</p>
+    <p class="cta-sub">Call now for a free estimate.</p>
+    <PhoneCTA />
+  </div>
+</section>
+
+</BaseLayout>

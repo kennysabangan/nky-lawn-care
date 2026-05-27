@@ -1,0 +1,545 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config';
+
+const { businessName, phone, phoneE164, serviceKeyword, serviceKeywordPlural, city, region, faqs, services, cities, testimonials, heroTagline, heroSubtext, heroAlt, formWebhookUrl } = siteConfig;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+  })),
+};
+---
+
+<BaseLayout
+  title={`${businessName} | ${serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} in ${city}`}
+  description={`Need ${serviceKeyword} in ${city}? ${businessName} provides residential and commercial ${serviceKeywordPlural} in Florence, Covington, Fort Mitchell, and all across ${region}. Call ${phone} for a free estimate.`}
+  schema={faqSchema}
+>
+
+<style>
+  /* ===== BASE (mobile-first) ===== */
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', sans-serif; color: #333; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+  @media (min-width: 769px) {
+    .container { padding: 0 2rem; }
+  }
+
+  /* Header */
+  .site-header {
+    background: #1a6bb5;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    gap: 1rem;
+  }
+  @media (min-width: 769px) {
+    .header-inner { padding: 0.85rem 2rem; }
+  }
+  .mobile-quote-text {
+    display: block;
+    color: #cce4f7;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .phone-btn {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  }
+  .nav-wrap { display: none; }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Business name */
+  .biz-name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.15;
+    font-family: Georgia, 'Times New Roman', serif;
+    padding: 1rem 0 0.25rem 0;
+    margin: 0;
+  }
+
+  /* Hero + Form layout */
+  .hero-form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  .hero-col { width: 100%; }
+  .hero-col img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+  }
+  .call-now-btn {
+    display: block;
+    background: #1a6bb5;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.85rem;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    margin: 1rem 0;
+    box-shadow: 0 4px 16px rgba(26,107,181,0.3);
+  }
+
+  /* Form */
+  .form-col { width: 100%; }
+  .form-banner {
+    background: linear-gradient(135deg, #1a6bb5, #2d8fd5);
+    color: #fff;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    padding: 1.5rem 1rem;
+  }
+  .form-banner-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .form-banner-sub {
+    color: #cce4f7;
+    font-size: 0.95rem;
+    margin: 0.35rem 0 0 0;
+  }
+  .form-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .form-note {
+    font-size: 0.75rem;
+    color: #666;
+    margin: 0 0 0.75rem 0;
+  }
+  .form-group { margin-bottom: 0.85rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 0.25rem;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.6rem 0.7rem;
+    font-size: 16px; /* prevents iOS zoom */
+    box-sizing: border-box;
+    font-family: inherit;
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  .name-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #1a6bb5, #2d8fd5);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(26,107,181,0.25);
+    font-family: inherit;
+  }
+
+  /* Services grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .service-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .service-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+  .service-card-body { padding: 1rem; }
+  .service-card-body h3 {
+    color: #1a6bb5;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem 0;
+  }
+  .service-card-body p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+  }
+
+  /* Section headings */
+  .section-title {
+    color: #1a6bb5;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem 0;
+    text-align: center;
+  }
+  .section-sub {
+    color: #666;
+    text-align: center;
+    margin: 0 0 1.5rem 0;
+    font-size: 1rem;
+  }
+
+  /* Content paragraphs */
+  .content-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+  .content-text:last-child { margin-bottom: 0; }
+
+  /* Testimonials */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .testimonial-card {
+    border-left: 4px solid #1a6bb5;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+  }
+  .testimonial-card .quote {
+    font-style: italic;
+    color: #444;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+  .testimonial-card .attribution {
+    font-weight: 600;
+    color: #1a6bb5;
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  /* Service areas */
+  .areas-list {
+    list-style: disc;
+    padding-left: 1.25rem;
+    line-height: 2;
+    color: #444;
+    font-size: 0.95rem;
+    columns: 2;
+  }
+  .areas-list a {
+    color: #1a6bb5;
+    text-decoration: none;
+  }
+
+  /* FAQ */
+  .faq-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    font-weight: 700;
+    color: #1a6bb5;
+    margin: 0 0 0.4rem 0;
+    font-size: 1rem;
+  }
+  .faq-a {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    background: linear-gradient(135deg, #1a6bb5 0%, #155a96 100%);
+    color: #fff;
+    padding: 2.5rem 1.25rem;
+    text-align: center;
+  }
+  .final-cta h2 {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+  }
+  .final-cta p {
+    color: #cce4f7;
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0;
+  }
+  .final-cta-btn {
+    display: inline-block;
+    background: #fff;
+    color: #1a6bb5;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+
+  /* Section spacing */
+  .section { padding: 2rem 0; }
+
+  /* ===== DESKTOP (769px+) ===== */
+  @media (min-width: 769px) {
+    .nav-wrap { display: block; }
+    .mobile-quote-text { display: none; }
+    .biz-name { font-size: 2.25rem; padding: 1rem 0 0.25rem 0; }
+
+    .hero-form-row {
+      flex-direction: row;
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+    .hero-col { flex: 1; min-width: 0; }
+    .hero-col img { max-height: 340px; }
+    .form-col { flex: 0 0 380px; }
+    .name-row { flex-direction: row; gap: 0.75rem; }
+
+    .services-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .service-card img { height: 180px; }
+
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .areas-list { columns: 3; }
+
+    .section { padding: 3rem 0; }
+    .section-title { font-size: 1.75rem; }
+  }
+</style>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={`tel:${phoneE164}`} class="phone-btn">📞 {phone}</a>
+    <span class="mobile-quote-text">Call us for a quote</span>
+    <nav class="nav-wrap">
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/lawn-care/">Services</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/reviews/">Reviews</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <!-- Hero + Form -->
+  <div class="hero-form-row">
+    <div class="hero-col">
+      <!-- Business name + tagline in left column -->
+      <h1 class="biz-name">{heroTagline}</h1>
+      <p style="font-size:1.1rem;color:#555;margin:0 0 1rem 0;line-height:1.5;">{heroSubtext}</p>
+      <img src="/photos/hero.jpg" alt="{heroAlt}" loading="eager" />
+      <a href={`tel:${phoneE164}`} class="call-now-btn">CALL NOW — {phone}</a>
+    </div>
+    <div class="form-col">
+      <div class="form-banner">
+        <p class="form-banner-title">FREE INSTANT QUOTE</p>
+        <p class="form-banner-sub">ENTER YOUR INFO BELOW</p>
+      </div>
+      <form class="form-card" id="quote-form">
+        <p class="form-note">* Indicates required field</p>
+        <div class="form-group">
+          <label>Name *</label>
+          <div class="name-row">
+            <input type="text" name="firstName" required placeholder="First" />
+            <input type="text" name="lastName" required placeholder="Last" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label>Comment *</label>
+          <textarea name="comment" required rows="4"></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section class="section">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">Professional {serviceKeywordPlural} for homes and businesses in {city}</p>
+    <div class="services-grid">
+      {services.map((service) => (
+        <div class="service-card">
+          <img src={service.photo} alt={`${service.title} — ${businessName}`} loading="lazy" />
+          <div class="service-card-body">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="section">
+    <h2 class="section-title" style="text-align:left;">{serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} in {city}</h2>
+    <p class="content-text">If you need reliable lawn care in {city}, we are the team to call. We provide {serviceKeywordPlural} across {region}.</p>
+    <p class="content-text">{businessName} has been providing {serviceKeywordPlural} across {city} for years. We handle weekly mowing, fertilization, weed control, aeration, and overseeding for residential properties. Whether your lawn needs a quick trim or a full-season treatment plan — we can handle it.</p>
+    <p class="content-text">We use professional-grade equipment and safe, effective lawn care products. Our fertilization programs are safe for kids and pets once dry, and our aeration service helps your grass grow thick and healthy year after year.</p>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <h2 class="section-title">What Our Customers Say</h2>
+    <p class="section-sub">Reviews from homeowners and businesses across {city}</p>
+    <div class="testimonials-grid">
+      {testimonials.map((t) => (
+        <div class="testimonial-card">
+          <p class="quote">&#9733;&#9733;&#9733;&#9733;&#9733; "{t.quote}"</p>
+          <p class="attribution">— {t.name}, {t.city}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="section">
+    <h2 class="section-title">Service Areas</h2>
+    <p class="section-sub">We serve all of {city}. Don't see your city? Call us at {phone}.</p>
+    <ul class="areas-list">
+      {cities.map((c) => (
+        <li><a href={`/lawn-care/${c.slug}/`}>{c.name}</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-sub">Common questions about our {serviceKeywordPlural}</p>
+    {faqs.map((faq, i) => (
+      <div class="faq-item">
+        <p class="faq-q">{faq.question}</p>
+        <p class="faq-a">{faq.answer}</p>
+      </div>
+    ))}
+  </section>
+
+</div>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <h2>Ready to Get Your Windows Cleaned?</h2>
+  <p>Call now for a free {serviceKeyword} estimate in {city}.</p>
+  <a href={`tel:${phoneE164}`} class="final-cta-btn">Call {phone}</a>
+</section>
+
+{formWebhookUrl && (
+  <script define:vars={{ formWebhookUrl, businessName }}>
+    document.getElementById('quote-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('submit-btn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const data = {
+        site_name: businessName,
+        first_name: form.firstName.value,
+        last_name: form.lastName.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        comment: form.comment.value,
+        page_path: window.location.pathname,
+      };
+
+      try {
+        await fetch(formWebhookUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        btn.textContent = 'Submitted!';
+        btn.style.background = '#22c55e';
+        form.reset();
+        setTimeout(() => {
+          btn.textContent = 'Submit';
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
+      } catch (err) {
+        btn.textContent = 'Error — Try Again';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Submit'; }, 3000);
+      }
+    });
+  </script>
+)}
+
+</BaseLayout>
