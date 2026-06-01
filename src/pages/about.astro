@@ -18,7 +18,7 @@ const aboutPageSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": `About ${businessName}`,
-  "description": `Learn about ${businessName} — ${city}'s trusted lawn care professionals serving Florence, Covington, Fort Mitchell, and all ${region} cities.`,
+  "description": `Learn about ${businessName} — ${city}'s professional lawn care professionals serving Florence, Covington, Fort Mitchell, and all ${region} cities.`,
   "mainEntity": {
     "@type": "LocalBusiness",
     "name": businessName,
@@ -29,7 +29,7 @@ const aboutPageSchema = {
 
 <BaseLayout
   title={`About Us | ${businessName} | ${serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} ${city}`}
-  description={`${businessName} is a locally owned ${serviceKeyword} company serving ${city}. We provide lawn care in Florence, Covington, Fort Mitchell, Erlanger, and all across ${region}. Licensed, insured, and committed to beautiful, healthy lawns.`}
+  description={`${businessName} is a locally owned ${serviceKeyword} company serving ${city}. We provide lawn care in Florence, Covington, Fort Mitchell, Erlanger, and all across ${region}. Licensed and committed to beautiful, healthy lawns.`}
   canonicalURL={`${siteUrl}/about/`}
   schema={[breadcrumbSchema, aboutPageSchema]}
 >
@@ -61,7 +61,7 @@ const aboutPageSchema = {
 
   <p>We started this company because we saw a need for a reliable {serviceKeyword} service in {city}. Too many homeowners were dealing with {serviceKeyword} companies that didn't show up on time, didn't do a thorough job, or charged too much. We set out to be different.</p>
 
-  <p>Today, we serve over 15 communities across {city}. Our {serviceKeyword} team is fully licensed, insured, and background-checked. We show up on time, do the job right, and stand behind our work with a 100% satisfaction guarantee.</p>
+  <p>Today, we serve over 15 communities across {city}. Our {serviceKeyword} team is fully licensed, insured, and background-checked. We show up on time, do the job right, and deliver quality work with a quality work you can count on.</p>
 
   <img
     src="/photos/residential.jpg"
@@ -83,12 +83,12 @@ const aboutPageSchema = {
   <h2 class="text-brand text-xl md:text-2xl font-bold mb-4 mt-8">Why {city} Trusts Us</h2>
 
   <ul>
-    <li>Licensed and insured {serviceKeyword} company</li>
+    <li>Professional, insured {serviceKeyword} company</li>
     <li>Background-checked, professional technicians</li>
     <li>On-time arrival — we respect your schedule</li>
     <li>Professional-grade equipment and safe lawn care products</li>
-    <li>Custom fertilization programs safe for kids and pets</li>
-    <li>100% satisfaction guarantee on every {serviceKeyword} job</li>
+    <li>Custom fertilization programs safe for your landscaping</li>
+    <li>quality work you can count on on every {serviceKeyword} job</li>
     <li>Locally owned and operated in {city}</li>
     <li>Free estimates — just call {phone}</li>
   </ul>

@@ -70,7 +70,7 @@ export const siteConfig = {
   brandColor: "#1a6bb5",
 
   // ── Hero content ─────────────────────────────────────────────────
-  heroTagline: "Northern Kentucky's Trusted Lawn Care Service",
+  heroTagline: "Northern Kentucky Lawn Care Service",
   heroSubtext: "Beautiful, healthy lawns all year round. Call us for a free estimate.",
   heroAlt: "Professional lawn care service mowing a green lawn",
 
@@ -98,14 +98,14 @@ export const siteConfig = {
       title: "Lawn Fertilization & Weed Control",
       slug: "fertilization-weed-control",
       description:
-        "Custom 7-step fertilization program that keeps your grass thick, green, and weed-free. We use professional-grade products safe for kids and pets. Licensed applicators serving all of NKY.",
+        "Custom 7-step fertilization program that keeps your grass thick, green, and weed-free. We use professional-grade products safe when dry. Licensed applicators serving all of NKY.",
       photo: "/photos/commercial.jpg",
     },
     {
       title: "Aeration & Overseeding",
       slug: "aeration-overseeding",
       description:
-        "Core aeration and overseeding in fall to thicken thin lawns and fix bare spots. The single best thing you can do for your lawn in Northern Kentucky. We serve residential properties across the region.",
+        "Core aeration and overseeding in fall to thicken thin lawns and fix bare spots. A great thing you can do for your lawn in Northern Kentucky. We serve residential properties across the region.",
       photo: "/photos/screen-cleaning.jpg",
     },
   ] as Service[],
@@ -115,7 +115,7 @@ export const siteConfig = {
     {
       question: "How much does lawn care cost in Northern Kentucky?",
       answer:
-        "Weekly mowing starts at $35-50 per visit for a typical residential lot. Fertilization programs run $300-500 per season. Call us at (859) 555-0300 for a free quote.",
+        "Pricing varies based on yard size and services needed. Call us at (859) 555-0300 for a free quote.",
     },
     {
       question: "How often should I mow my lawn?",
@@ -123,7 +123,7 @@ export const siteConfig = {
         "During peak growing season (April-October), weekly mowing is best. In slower months, every 2 weeks works fine. We adjust our schedule based on growth rate.",
     },
     {
-      question: "Is your fertilizer safe for kids and pets?",
+      question: "Is your fertilizer safe when dry?",
       answer:
         "Yes. We use professional-grade products that are safe once dry. We recommend staying off the lawn for 1-2 hours after application, then it's completely safe.",
     },
@@ -250,7 +250,7 @@ export const siteConfig = {
       lat: "39.0625",
       lng: "-84.5916",
       intro:
-        "Villa Hills is one of Northern Kentucky's premier residential communities, and the lawns here deserve nothing less than the best. NKY Lawn Care Pros delivers premium lawn care that matches Villa Hills' high standards. The elevated terrain and river-adjacent location near the Ohio River floodplain create unique growing conditions, and our team is equipped to handle them all. From weekly mowing to full-season fertilization programs, Villa Hills homeowners trust us to keep their yards beautiful.",
+        "Villa Hills is one of Northern Kentucky's premier residential communities, and the lawns here deserve quality service. NKY Lawn Care Pros delivers premium lawn care that matches Villa Hills' high standards. The elevated terrain and river-adjacent location near the Ohio River floodplain create unique growing conditions, and our team is equipped to handle them all. From weekly mowing to full-season fertilization programs, Villa Hills homeowners trust us to keep their yards beautiful.",
     },
     {
       name: "Crescent Springs, KY",
@@ -307,7 +307,7 @@ export const siteConfig = {
       lat: "39.2289",
       lng: "-84.3541",
       intro:
-        "Montgomery's tree-canopied streets near Heritage Village and stately homes make it one of the Cincinnati area's premier residential communities. NKY Lawn Care Pros extends our premium lawn care services to Montgomery homeowners who expect nothing but the best. The large lots, mature landscaping, and varied terrain throughout Montgomery require a careful, experienced approach — and our team delivers exactly that, from weekly mowing to full-season fertilization programs.",
+        "Montgomery's tree-canopied streets near Heritage Village and stately homes make it one of the Cincinnati area's premier residential communities. NKY Lawn Care Pros extends our premium lawn care services to Montgomery homeowners who expect quality service. The large lots, mature landscaping, and varied terrain throughout Montgomery require a careful, experienced approach — and our team delivers exactly that, from weekly mowing to full-season fertilization programs.",
     },
     {
       name: "Deer Park, OH",
@@ -315,7 +315,7 @@ export const siteConfig = {
       lat: "39.2053",
       lng: "-84.3922",
       intro:
-        "Deer Park is a welcoming, family-friendly community just north of Cincinnati, and NKY Lawn Care Pros is proud to bring our lawn care services to this great neighborhood. From the well-kept ranch homes along Blue Ash Road to the two-story colonials in the side streets, Deer Park homes deserve thick, healthy lawns. We offer flexible scheduling, fair pricing, and the kind of dependable service that Deer Park homeowners appreciate.",
+        "Deer Park is a welcoming, family-friendly community just north of Cincinnati, and NKY Lawn Care Pros is proud to bring our lawn care services to this great neighborhood. From the well-kept ranch homes along Blue Ash Road to the two-story colonials in the side streets, Deer Park homes deserve thick, healthy lawns. We offer flexible scheduling, Flexible scheduling, and the kind of dependable service that Deer Park homeowners appreciate.",
     },
     {
       name: "Amberly, OH",
@@ -399,13 +399,13 @@ export const siteConfig = {
     },
     {
       quote:
-        "Finally found a lawn care company that actually shows up when they say they will. Fast, professional, and our Fort Mitchell yard looks amazing every week. Best lawn care in Northern Kentucky.",
+        "Finally found a lawn care company that actually shows up when they say they will. Fast, professional, and our Fort Mitchell yard looks amazing every week. Professional lawn care service in Northern Kentucky.",
       name: "Sarah K.",
       city: "Fort Mitchell, KY",
     },
     {
       quote:
-        "We use NKY Lawn Care Pros for mowing and fertilization. They always do a great job and our home in Edgewood has the best lawn on the block. Reliable and affordable.",
+        "We use NKY Lawn Care Pros for mowing and fertilization. They always do a great job and our home in Edgewood has a beautiful lawn. Reliable and affordable.",
       name: "Karen L.",
       city: "Edgewood, KY",
     },
@@ -426,27 +426,27 @@ export const siteConfig = {
     {
       name: "Sarah K.",
       location: "Fort Mitchell, KY",
-      text: "Finally found a lawn care company that actually shows up when they say they will. Fast, professional, and our Fort Mitchell yard looks amazing every week. Best lawn care in Northern Kentucky.",
+      text: "Finally found a lawn care company that actually shows up when they say they will. Fast, professional, and our Fort Mitchell yard looks amazing every week. Professional lawn care service in Northern Kentucky.",
     },
     {
       name: "Mike D.",
       location: "Erlanger, KY",
-      text: "Hired them for weekly mowing at our home in Erlanger. They show up on time, do a thorough job, and our lawn has never looked better. Great lawn care service at a fair price.",
+      text: "Hired them for weekly mowing at our home in Erlanger. They show up on time, do a thorough job, and our lawn has never looked better. Great lawn care service at a competitive price.",
     },
     {
       name: "Jennifer P.",
       location: "Independence, KY",
-      text: "We just moved to Independence and needed lawn care fast. NKY Lawn Care Pros started the same week we called. Their fertilization program turned our thin, weedy lawn into the best yard on the street. Highly recommend.",
+      text: "We just moved to Independence and needed lawn care fast. NKY Lawn Care Pros started the same week we called. Their fertilization program turned our thin, weedy lawn into a great yard on the street. Highly recommend.",
     },
     {
       name: "Dave S.",
       location: "Newport, KY",
-      text: "Called for weekly mowing on our home in Newport. They gave us a fair price over the phone and came out the same week. Our lawn looks great and they always clean up after themselves. Great service.",
+      text: "Called for weekly mowing on our home in Newport. They gave us a competitive price over the phone and came out the same week. Our lawn looks great and they always clean up after themselves. Great service.",
     },
     {
       name: "Karen L.",
       location: "Edgewood, KY",
-      text: "We use NKY Lawn Care Pros for mowing and fertilization. They always do a great job and our home in Edgewood has the best lawn on the block. Reliable and affordable lawn care in Northern Kentucky.",
+      text: "We use NKY Lawn Care Pros for mowing and fertilization. They always do a great job and our home in Edgewood has a beautiful lawn. Reliable and affordable lawn care in Northern Kentucky.",
     },
     {
       name: "Tom W.",
