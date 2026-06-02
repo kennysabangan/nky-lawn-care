@@ -106,7 +106,7 @@ export const siteConfig = {
       slug: "aeration-overseeding",
       description:
         "Core aeration and overseeding in fall to thicken thin lawns and fix bare spots. A great thing you can do for your lawn in Northern Kentucky. We serve residential properties across the region.",
-      photo: "/photos/screen-cleaning.jpg",
+      photo: "/photos/commercial.jpg",
     },
   ] as Service[],
 
@@ -315,7 +315,7 @@ export const siteConfig = {
       lat: "39.2053",
       lng: "-84.3922",
       intro:
-        "Deer Park is a welcoming, family-friendly community just north of Cincinnati, and NKY Lawn Care Pros is proud to bring our lawn care services to this great neighborhood. From the well-kept ranch homes along Blue Ash Road to the two-story colonials in the side streets, Deer Park homes deserve thick, healthy lawns. We offer flexible scheduling, Flexible scheduling, and the kind of dependable service that Deer Park homeowners appreciate.",
+        "Deer Park is a welcoming, family-friendly community just north of Cincinnati, and NKY Lawn Care Pros is proud to bring our lawn care services to this great neighborhood. From the well-kept ranch homes along Blue Ash Road to the two-story colonials in the side streets, Deer Park homes deserve thick, healthy lawns. We offer flexible scheduling and the kind of dependable service that Deer Park homeowners appreciate.",
     },
     {
       name: "Amberly, OH",
