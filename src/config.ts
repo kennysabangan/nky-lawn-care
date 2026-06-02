@@ -99,7 +99,7 @@ export const siteConfig = {
       slug: "fertilization-weed-control",
       description:
         "Custom 7-step fertilization program that keeps your grass thick, green, and weed-free. We use professional-grade products safe when dry. Licensed applicators serving all of NKY.",
-      photo: "/photos/commercial.jpg",
+      photo: "/photos/aeration.jpg",
     },
     {
       title: "Aeration & Overseeding",
