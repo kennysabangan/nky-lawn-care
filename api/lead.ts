@@ -24,7 +24,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Email to business owner (hello@scalesolving.com)
   try {
     await resend.emails.send({
-      from: `${site_name} Alerts <alerts@mursenmaintenance.com>`,
+      from: `${site_name} Alerts <lead@scalesolving.com>`,
       to: ['hello@scalesolving.com'],
       subject: `New Lead: ${fullName}` + (page_path && page_path !== '/' ? ` — ${page_path}` : ''),
       html: `<h2>New Lead from ${site_name}</h2>
@@ -42,7 +42,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Confirmation email to customer
   try {
     await resend.emails.send({
-      from: `${site_name} <alerts@mursenmaintenance.com>`,
+      from: `${site_name} <lead@scalesolving.com>`,
       to: [email],
       subject: `Thanks ${first_name}! We received your quote request`,
       html: `<h2>Thanks for reaching out, ${first_name}!</h2>
