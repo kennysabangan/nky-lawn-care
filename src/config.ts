@@ -34,8 +34,8 @@ export interface Testimonial {
 export const siteConfig = {
   // ── Business identity ──────────────────────────────────────────────
   businessName: "NKY Lawn Care Pros",
-  phone: "(859) 900-8044",
-  phoneE164: "+18599008044",
+  phone: "(859) 900-8065",
+  phoneE164: "+18599008065",
   domain: "nkylawncarepros.com",
   siteUrl: "https://nkylawncarepros.com",
 
@@ -46,8 +46,8 @@ export const siteConfig = {
   // ── Analytics ───────────────────────────────────────────────────────
   // Set these to your real GA4 / GTM IDs to enable tracking.
   // Leave as placeholders (or empty) to disable — the site still works.
-  ga4MeasurementId: "G-XXXXXXXXXX",   // Google Analytics 4
-  gtmContainerId: "GTM-XXXXXXX",      // Google Tag Manager
+  ga4MeasurementId: "G-YWG2DC42BW",   // Google Analytics 4
+  gtmContainerId: "",      // Google Tag Manager
 
   // helper: truthy only when the value looks like a real ID
   get hasGA4() {
@@ -115,7 +115,7 @@ export const siteConfig = {
     {
       question: "How much does lawn care cost in Northern Kentucky?",
       answer:
-        "Pricing varies based on yard size and services needed. Call us at (859) 900-8044 for a free quote.",
+        "Pricing varies based on yard size and services needed. Call us at (859) 900-8065 for a free quote.",
     },
     {
       question: "How often should I mow my lawn?",
@@ -150,7 +150,7 @@ export const siteConfig = {
     {
       question: "How do I schedule service?",
       answer:
-        "Just call us at (859) 900-8044. We can usually start within a few days. We serve Florence, Covington, Fort Mitchell, Erlanger, and all of Northern Kentucky.",
+        "Just call us at (859) 900-8065. We can usually start within a few days. We serve Florence, Covington, Fort Mitchell, Erlanger, and all of Northern Kentucky.",
     },
   ] as FAQ[],
 
