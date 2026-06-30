@@ -34,8 +34,8 @@ export interface Testimonial {
 export const siteConfig = {
   // ── Business identity ──────────────────────────────────────────────
   businessName: "NKY Lawn Care Pros",
-  phone: "(859) 900-8065",
-  phoneE164: "+18599008065",
+  phone: "(859) 900-8044",
+  phoneE164: "+18599008044",
   domain: "nkylawncarepros.com",
   siteUrl: "https://nkylawncarepros.com",
 
@@ -70,8 +70,9 @@ export const siteConfig = {
   brandColor: "#1a6bb5",
 
   // ── Hero content ─────────────────────────────────────────────────
-  heroTagline: "Northern Kentucky Lawn Care Service",
-  heroSubtext: "Beautiful, healthy lawns all year round. Call us for a free estimate.",
+  heroTagline: "Northern Kentucky's #1 Rated Lawn Care Service",
+  heroSubtext: "Book Today — Free Estimates | Beautiful, Healthy Lawns Guaranteed.",
+  heroReviewUrl: "https://www.google.com/maps/place/NKY+Lawn+Care+Pros",
   heroAlt: "Professional lawn care service mowing a green lawn",
 
   // ── Computed city lists ──────────────────────────────────────────
@@ -115,7 +116,7 @@ export const siteConfig = {
     {
       question: "How much does lawn care cost in Northern Kentucky?",
       answer:
-        "Pricing varies based on yard size and services needed. Call us at (859) 900-8065 for a free quote.",
+        "Pricing varies based on yard size and services needed. Call us at (859) 900-8044 for a free quote.",
     },
     {
       question: "How often should I mow my lawn?",
@@ -150,7 +151,7 @@ export const siteConfig = {
     {
       question: "How do I schedule service?",
       answer:
-        "Just call us at (859) 900-8065. We can usually start within a few days. We serve Florence, Covington, Fort Mitchell, Erlanger, and all of Northern Kentucky.",
+        "Just call us at (859) 900-8044. We can usually start within a few days. We serve Florence, Covington, Fort Mitchell, Erlanger, and all of Northern Kentucky.",
     },
   ] as FAQ[],
 
