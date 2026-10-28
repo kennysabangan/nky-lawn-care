@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PhoneCTA from '../components/PhoneCTA.astro';
 import { siteConfig } from '../config';
 
-const { businessName, phone, siteUrl, serviceKeyword, serviceKeywordPlural, city, region, cities } = siteConfig;
+const { businessName, phone, siteUrl, serviceKeyword, city, cities, services } = siteConfig;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -18,7 +18,7 @@ const aboutPageSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": `About ${businessName}`,
-  "description": `Learn about ${businessName} — ${city}'s professional lawn care professionals serving Florence, Covington, Fort Mitchell, and all ${region} cities.`,
+  "description": `${businessName} provides residential ${serviceKeyword} in ${city}.`,
   "mainEntity": {
     "@type": "LocalBusiness",
     "name": businessName,
@@ -28,74 +28,59 @@ const aboutPageSchema = {
 ---
 
 <BaseLayout
-  title={`About Us | ${businessName} | ${serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} ${city}`}
-  description={`${businessName} is a locally owned ${serviceKeyword} company serving ${city}. We provide lawn care in Florence, Covington, Fort Mitchell, Erlanger, and all across ${region}. Licensed and committed to beautiful, healthy lawns.`}
+  title={`About Us | ${businessName}`}
+  description={`${businessName} provides mowing, fertilization, weed control, and aeration for homes in Florence, Covington, Fort Thomas, Newport, and across Northern Kentucky. What we do, how a visit works, and where we go.`}
   canonicalURL={`${siteUrl}/about/`}
   schema={[breadcrumbSchema, aboutPageSchema]}
 >
 
-<!-- Hero -->
 <section class="hero-section">
   <div class="container">
     <h1>About {businessName}</h1>
-    <p class="hero-sub">Locally owned {serviceKeyword} company serving {city}.</p>
+    <p class="hero-sub">Lawn care for Northern Kentucky homes.</p>
     <PhoneCTA />
   </div>
 </section>
 
-<!-- Photo -->
 <div class="container py-6 text-center">
   <img
     src="/photos/team.jpg"
-    alt={`${businessName} team`}
+    alt="Lawn care crew with mowers and trimmers"
     class="site-photo mx-auto max-w-2xl"
     loading="eager"
   />
 </div>
 
-<!-- About content -->
 <div class="content-section">
-  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4">Who We Are</h2>
+  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4">What We Do</h2>
 
-  <p>{businessName} is a locally owned and operated {serviceKeyword} company based in {city}. We provide {serviceKeywordPlural} for residential properties across {region}.</p>
-
-  <p>We started this company because we saw a need for a reliable {serviceKeyword} service in {city}. Too many homeowners were dealing with {serviceKeyword} companies that didn't show up on time, didn't do a thorough job, or charged too much. We set out to be different.</p>
-
-  <p>Today, we serve over 15 communities across {city}. Our {serviceKeyword} team is fully licensed, insured, and background-checked. We show up on time, do the job right, and deliver quality work you can count on.</p>
-
-  <img
-    src="/photos/residential.jpg"
-    alt={`${serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} in ${city}`}
-    class="site-photo mx-auto max-w-lg my-6"
-    loading="lazy"
-  />
-
-  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4 mt-8">What We Do</h2>
-
-  <p>We provide {serviceKeywordPlural} for residential properties throughout {city}. Our services include:</p>
+  <p>Residential lawn care in Boone, Kenton, and Campbell counties: weekly mowing through the growing season, seasonal fertilization and weed control, and fall core aeration and overseeding.</p>
 
   <ul>
-    {siteConfig.services.map((s) => (
-      <li><strong>{s.title}</strong> — {s.description.split('.').slice(0, 2).join('.')}.</li>
+    {services.map((s) => (
+      <li><strong>{s.title}</strong> — {s.description}</li>
     ))}
   </ul>
 
-  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4 mt-8">Why {city} Trusts Us</h2>
+  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4 mt-8">How It Works</h2>
+
+  <p><strong>1. Quote.</strong> Call {phone} or send the form. Tell us roughly how big the yard is, which services you want, and anything unusual — steep slopes, gated backyards, heavy shade, or bare patches. Weekly and one-time mowing are both available, with no contract required.</p>
+
+  <p><strong>2. Service.</strong> Mowing visits include mowing, trimming, edging, and blowing clippings off hard surfaces. Fertilizer and weed control are applied according to label directions on a seasonal schedule. Aeration and overseeding are done in fall, usually September through October.</p>
+
+  <p><strong>3. Follow-up.</strong> If something was missed on a visit, call and it gets taken care of.</p>
+
+  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4 mt-8">Where We Work</h2>
+
+  <p>Our main service areas in Boone, Kenton, and Campbell counties:</p>
 
   <ul>
-    <li>Professional, insured {serviceKeyword} company</li>
-    <li>Background-checked, professional technicians</li>
-    <li>On-time arrival — we respect your schedule</li>
-    <li>Professional-grade equipment and safe lawn care products</li>
-    <li>Custom fertilization programs safe for your landscaping</li>
-    <li>Quality work you can count on—every single visit</li>
-    <li>Locally owned and operated in {city}</li>
-    <li>Free estimates — just call {phone}</li>
+    {cities.map((c) => (
+      <li><a href={`/lawn-care/${c.slug}/`}>Lawn care in {c.name}</a></li>
+    ))}
   </ul>
 
-  <h2 class="text-brand text-xl md:text-2xl font-bold mb-4 mt-8">Where We Serve</h2>
-
-  <p>We provide {serviceKeywordPlural} throughout {city}, including {cities.map((c) => c.name).join(', ')}. If you're in {city} and need lawn care, call us at {phone}.</p>
+  <p>Close by but not on the list? Call {phone} and ask — nearby towns are often fine.</p>
 </div>
 
 <!-- CTA -->
