@@ -1,22 +1,18 @@
 # NKY Lawn Care Pros
 
 ## About
-NKY Lawn Care Pros provides professional lawn care services for residential and commercial customers across Northern Kentucky and the greater Cincinnati area. We serve Florence, Covington, Fort Mitchell, Erlanger, Independence, Newport, and surrounding communities in Boone, Kenton, and Campbell counties.
+NKY Lawn Care Pros provides residential lawn care in Northern Kentucky (Boone, Kenton, and Campbell counties): weekly mowing, fertilization, weed control, and fall aeration and overseeding. Free estimates by phone: (859) 900-8044.
 
 ## Services
-- lawn care for homes and businesses
-- Free estimates and consultations
-- Licensed and insured technicians
-- Same-day and emergency service available
+- Weekly and one-time mowing (mowing, trimming, edging, blowing)
+- Seasonal fertilization and weed control
+- Fall core aeration and overseeding
+- Fall leaf removal (add-on)
 
 ## Service Areas
-Florence KY, Covington KY, Fort Mitchell KY, Erlanger KY, Independence KY, Newport KY, Edgewood KY, Fort Thomas KY, Bellevue KY, Cold Spring KY, and all Northern Kentucky communities.
+Florence, Covington, Fort Thomas, Newport, Fort Mitchell, Erlanger, Edgewood, and Independence, Kentucky.
 
 ## Key Pages
 - Home: https://nkylawncarepros.com/
-- About Us: https://nkylawncarepros.com/about
-- Lawn Care: https://nkylawncarepros.com/lawn-care/
-- Reviews: https://nkylawncarepros.com/reviews
-
-## Contact
-Call for a free estimate. Serving Northern Kentucky since day one.
+- Service areas: https://nkylawncarepros.com/lawn-care/
+- About: https://nkylawncarepros.com/about/
