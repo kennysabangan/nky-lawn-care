@@ -33,8 +33,8 @@ export interface FAQ {
 export const siteConfig = {
   // ── Business identity ──────────────────────────────────────────────
   businessName: "NKY Lawn Care Pros",
-  phone: "(859) 900-8044",
-  phoneE164: "+18599008044",
+  phone: "(714) 494-9486",
+  phoneE164: "+17144949486",
   domain: "nkylawncarepros.com",
   siteUrl: "https://nkylawncarepros.com",
 
@@ -118,7 +118,7 @@ export const siteConfig = {
     {
       question: "How much does lawn care cost in Northern Kentucky?",
       answer:
-        "Pricing varies based on yard size and services needed. Call us at (859) 900-8044 for a free quote.",
+        "Pricing varies based on yard size and services needed. Call us at (714) 494-9486 for a free quote.",
     },
     {
       question: "How often should I mow my lawn?",
@@ -153,7 +153,7 @@ export const siteConfig = {
     {
       question: "How do I schedule service?",
       answer:
-        "Just call us at (859) 900-8044. We can usually start within a few days. We serve Florence, Covington, Fort Mitchell, Erlanger, and all of Northern Kentucky.",
+        "Just call us at (714) 494-9486. We can usually start within a few days. We serve Florence, Covington, Fort Mitchell, Erlanger, and all of Northern Kentucky.",
     },
   ] as FAQ[],
 
