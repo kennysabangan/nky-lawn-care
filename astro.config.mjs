@@ -35,7 +35,7 @@ const removedCityRedirects = Object.fromEntries(
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nkylawncarepros.com',
+  site: 'https://www.nkylawncarepros.com',
 
   output: 'server',
 

@@ -26,4 +26,4 @@ Allow: /
 User-agent: Bytespider
 Disallow: /
 
-Sitemap: https://nkylawncarepros.com/sitemap-index.xml
+Sitemap: https://www.nkylawncarepros.com/sitemap-index.xml
