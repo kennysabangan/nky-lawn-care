@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PhoneCTA from '../../components/PhoneCTA.astro';
-import { siteConfig } from '../../config';
+import { siteConfig, fitTitle } from '../../config';
 
 const { businessName, phone, phoneE164, siteUrl, serviceKeyword, serviceKeywordPlural, city, region, services, cities } = siteConfig;
 
@@ -29,8 +29,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title={`Lawn Care Service Areas in Northern Kentucky | ${businessName}`}
-  description={`${serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} services in ${city}. We provide mowing, fertilization, weed control, and aeration for homes across ${region}. Call ${phone} for a free estimate.`}
+  title={fitTitle('Lawn Care Service Areas in Northern KY')}
+  description="Lawn care service areas in Northern Kentucky: mowing, fertilization, weed control, and aeration for homes in Boone, Kenton, and Campbell counties."
   canonicalURL={`${siteUrl}/lawn-care/`}
   schema={[breadcrumbSchema, serviceSchema]}
 >

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { siteConfig } from '../../config';
+import { siteConfig, fitTitle } from '../../config';
 import type { City } from '../../config';
 
 export const prerender = true;
@@ -38,11 +38,12 @@ const breadcrumbSchema = {
 const nearbyCities = cities.filter((c) => c.slug !== city.slug);
 const cityName = city.name.replace(/, KY$/, '').replace(/, OH$/, '');
 const stateAbbr = city.name.includes('OH') ? 'OH' : 'KY';
+const headline = city.headline ?? `Lawn Care in ${city.name}`;
 ---
 
 <BaseLayout
-  title={`${serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} in ${city.name} | ${businessName}`}
-  description={`${serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} in ${cityName}, ${stateAbbr}: weekly mowing, fertilization, weed control, and fall aeration for homes. Free estimates — call ${phone}.`}
+  title={fitTitle(headline)}
+  description={city.metaDescription ?? `Lawn care in ${cityName}, ${stateAbbr}: weekly mowing, fertilization, weed control, and fall aeration for homes. Free estimates — call ${phone}.`}
   canonicalURL={`${siteUrl}/lawn-care/${city.slug}/`}
   schema={[breadcrumbSchema, cityServiceSchema]}
 >
@@ -342,7 +343,7 @@ const stateAbbr = city.name.includes('OH') ? 'OH' : 'KY';
 <!-- HERO -->
 <section class="page-hero">
   <div class="container">
-    <h1>{serviceKeyword.charAt(0).toUpperCase() + serviceKeyword.slice(1)} in {city.name}</h1>
+    <h1>{headline}</h1>
     <p class="hero-sub">Mowing, fertilization, weed control, and aeration for homes in {cityName}, {stateAbbr}.</p>
     <a href={`tel:${phoneE164}`} class="call-now-btn">CALL NOW — {phone}</a>
   </div>
@@ -367,6 +368,14 @@ const stateAbbr = city.name.includes('OH') ? 'OH' : 'KY';
     <p class="content-text">{businessName} handles weekly mowing, fertilization, weed control, aeration, and overseeding for residential properties throughout {cityName}. Whether you need weekly mowing or a full-season lawn treatment program, call {phone} for a free estimate.</p>
     <p class="content-text">Every mowing visit includes mowing, edging, blowing, and cleanup. Fertilizer and weed control products are applied according to label directions, and treatments are adjusted to your lawn — sun or shade, thin or thick turf, loose or compacted soil.</p>
   </section>
+
+  <!-- Optional city-specific sections (only rendered when the city config has them) -->
+  {city.extraSections?.map((sec) => (
+    <section class="section">
+      <h2 class="section-title" style="text-align:left;">{sec.heading}</h2>
+      {sec.paragraphs.map((p) => <p class="content-text">{p}</p>)}
+    </section>
+  ))}
 
   <!-- Mid CTA -->
   <section class="mid-cta">

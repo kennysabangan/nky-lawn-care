@@ -17,12 +17,24 @@ export interface Service {
   photo: string;
 }
 
+/** An extra block of city-specific content rendered on that city's page. */
+export interface CitySection {
+  heading: string;
+  paragraphs: string[];
+}
+
 export interface City {
   name: string;
   slug: string;
   lat: string;
   lng: string;
   intro: string;
+  /** Optional H1 / title phrase. Defaults to "Lawn Care in {name}". */
+  headline?: string;
+  /** Optional meta description. Defaults to the shared city template. */
+  metaDescription?: string;
+  /** Optional extra content sections, rendered after the intro only when present. */
+  extraSections?: CitySection[];
 }
 
 export interface FAQ {
@@ -33,6 +45,8 @@ export interface FAQ {
 export const siteConfig = {
   // ── Business identity ──────────────────────────────────────────────
   businessName: "NKY Lawn Care Pros",
+  /** Short brand used in <title> tags when the full name would push them past 60 chars. */
+  shortBrand: "NKY Lawn Care",
   phone: "(714) 494-9486",
   phoneE164: "+17144949486",
   domain: "nkylawncarepros.com",
@@ -73,7 +87,7 @@ export const siteConfig = {
   brandColor: "#1a6bb5",
 
   // ── Hero content ─────────────────────────────────────────────────
-  heroTagline: "Lawn Care in Northern Kentucky",
+  heroTagline: "Lawn Care in Cincinnati & Northern Kentucky",
   heroSubtext: "Weekly mowing, fertilization, weed control, and fall aeration for homes across Boone, Kenton, and Campbell counties. Book today — free estimates.",
   heroAlt: "Professional lawn care service mowing a green lawn",
 
@@ -166,6 +180,20 @@ export const siteConfig = {
       lng: "-84.6266",
       intro:
         "NKY Lawn Care Pros keeps Florence yards in shape through every season. Whether your home is near Florence Mall or tucked into one of the residential neighborhoods off US-42, our crew handles weekly mowing, fertilization, and seasonal cleanups. We know the clay-heavy soil and humid summers in Florence can make lawn care tricky, and we tailor our approach to help your grass thrive year after year.",
+      headline: "Lawn Care & Lawn Service in Florence, KY",
+      metaDescription:
+        "Lawn care and lawn service in Florence, KY: weekly mowing, fertilization, weed control, and fall aeration and overseeding for Boone County homes.",
+      extraSections: [
+        {
+          heading: "Lawn Care for Florence and Boone County Yards",
+          paragraphs: [
+            "Most Florence homes sit in established subdivisions with modest suburban lots, while newer developments elsewhere in Boone County tend to have larger yards. Newer lots often have turf that was seeded or sodded over compacted construction soil, so it can stay thin for years without aeration and overseeding.",
+            "Like the rest of Northern Kentucky, Florence lawns are almost all cool-season grasses — mostly tall fescue, often mixed with Kentucky bluegrass and some perennial ryegrass. These grasses grow fastest in spring and fall and slow down in the heat of July and August, so we raise the mowing height in midsummer to help the lawn hold moisture and crowd out weeds.",
+            "Mowing season in Florence usually runs from about April through October, depending on the weather. Spring is when growth is fastest and weekly visits matter most; in a dry late summer, growth slows and some visits are lighter.",
+            "Fall is the best time to aerate and overseed a fescue lawn in Boone County — usually September through October. Warm soil helps new seed germinate, cooler air is easier on young grass, and there's less weed competition than in spring. Florence's heavy clay soil compacts easily, so core aeration before overseeding gives the seed and roots room to grow.",
+          ],
+        },
+      ],
     },
     {
       name: "Covington, KY",
@@ -225,3 +253,16 @@ export const siteConfig = {
     },
   ] as City[],
 };
+
+/**
+ * Build a page <title> that stays within 60 characters (the length Google
+ * shows before truncating). Uses "main | Full Brand" when it fits, then
+ * "main | Short Brand", then the main phrase alone.
+ */
+export function fitTitle(main: string, max = 60): string {
+  for (const brand of [siteConfig.businessName, siteConfig.shortBrand]) {
+    const t = `${main} | ${brand}`;
+    if (t.length <= max) return t;
+  }
+  return main;
+}
