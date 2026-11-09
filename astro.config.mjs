@@ -38,6 +38,7 @@ export default defineConfig({
   site: 'https://www.nkylawncarepros.com',
 
   output: 'server',
+  trailingSlash: 'always',
 
   redirects: {
     ...removedCityRedirects,

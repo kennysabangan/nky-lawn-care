@@ -491,7 +491,7 @@ const headline = city.headline ?? `Lawn Care in ${city.name}`;
       var controller = new AbortController();
       setTimeout(function() { controller.abort(); }, 30000);
 
-      fetch('/api/lead', {
+      fetch('/api/lead/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
